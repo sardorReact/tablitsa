@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded", () => {
     title = document.querySelector("#title"),
     sum = document.querySelector("#author"),
     number = document.querySelector('#nomer'),
-    name = document.querySelector('#driver')
+    name = document.querySelector('#driver'),
     value_container = document.querySelector(".value-container"),
     book = document.querySelector("#book-list");
 
@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded", () => {
       const newNomer = document.createElement("th");
       const newName = document.createElement("th");
       const new_count = document.createElement("div");
-      newNum.innerHTML = i.num;
+      newNum.innerHTML = i.num;   
       newRow.appendChild(newNum);
 
       newTitle.innerHTML = i.title;
@@ -32,10 +32,10 @@ window.addEventListener("DOMContentLoaded", () => {
       newCar.innerHTML = i.sum;
       newRow.appendChild(newCar);
 
-      newNomer.innerHTML = i.sum;
+      newNomer.innerHTML = i.number;
       newRow.appendChild(newNomer);
 
-      newName.innerHTML = i.sum;
+      newName.innerHTML = i.name;
       newRow.appendChild(newName);
 
       value_container.innerHTML = total + i.full;
@@ -58,8 +58,8 @@ window.addEventListener("DOMContentLoaded", () => {
       num: 0,
       title: "",
       sum: "",
-      name: "",
       number: "",
+      name: "",
       full: 0,
     };
     const newRow = document.createElement("tr");
@@ -83,6 +83,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
     obj.sum = sum.value;
 
+    newTitle.innerHTML = title.value;
+    newRow.appendChild(newTitle);
+
     newCar.innerHTML = sum.value;
     newRow.appendChild(newCar);
 
@@ -99,10 +102,12 @@ window.addEventListener("DOMContentLoaded", () => {
     value_container.appendChild(new_count);
     book.appendChild(newRow);
     data.push(obj);
+    console.log(obj);
+    console.log(data);
     localStorage.setItem("myCar", JSON.stringify(data));
     title.value = "";
     sum.value = "";
-    name.value = ""
-    number.value = ""
-  });
+    number.value = "";
+    name.value = "";
+    });
 });
